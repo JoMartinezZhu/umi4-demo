@@ -1,9 +1,7 @@
 import { defineConfig } from '@umijs/max';
 
   export default defineConfig({
-    antd: {
-    
-    },
+    antd: {},
     access: {},
     model: {},
     initialState: {},
@@ -32,5 +30,9 @@ import { defineConfig } from '@umijs/max';
         component: './Table',
       },
     ],
+    hash: true,
+    history: {
+      type: 'hash',
+    },
     npmClient: 'pnpm',
   });
