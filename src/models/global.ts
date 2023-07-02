@@ -1,4 +1,3 @@
-// 全局共享数据示例
 import { DEFAULT_NAME } from '@/constants';
 import { useState } from 'react';
 
@@ -9,5 +8,6 @@ const useUser = () => {
     setName,
   };
 };
+
 
 export default useUser;

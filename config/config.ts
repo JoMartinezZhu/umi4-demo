@@ -1,7 +1,28 @@
 import { defineConfig } from '@umijs/max';
+import routes from './routes';
 
   export default defineConfig({
-    antd: {},
+    antd: {
+       // configProvider
+    configProvider: {
+      theme:{
+        token: {
+          colorPrimary: '#00b96b',
+        },
+      }
+    },
+    // babel-plugin-import
+    import: false,
+    // less or css, default less
+    style: 'less',
+    // shortcut of `configProvider.theme`
+    // use to configure theme token, antd v5 only
+    theme: {},
+    // antd <App /> valid for version 5.1.0 or higher, default: undefined
+    appConfig: {},
+    // Transform DayJS to MomentJS
+    momentPicker: false,
+    },
     access: {},
     model: {},
     initialState: {},
@@ -9,27 +30,12 @@ import { defineConfig } from '@umijs/max';
     layout: {
       title: '@umijs/max',
     },
-    routes: [
-      {
-        path: '/',
-        redirect: '/home',
-      },
-      {
-        name: '首页',
-        path: '/home',
-        component: './Home',
-      },
-      {
-        name: '权限演示',
-        path: '/access',
-        component: './Access',
-      },
-      {
-        name: ' CRUD 示例',
-        path: '/table',
-        component: './Table',
-      },
-    ],
+    routes: routes,
+    locale: {
+      // 默认使用 src/locales/zh-CN.ts 作为多语言文件
+      default: 'zh-CN',
+      baseSeparator: '-',
+    },
     hash: true,
     history: {
       type: 'hash',
